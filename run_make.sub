@@ -1,0 +1,25 @@
+Universe   = vanilla
+Executable = run_make.sh
+
+# Arquivos e pastas necessários para o projeto
+# Nota: O Executable (run_make.sh) é transferido automaticamente
+transfer_input_files = Makefile, src, tcl, constraints
+
+# Configurações de transferência
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+# O HTCondor trará de volta tudo o que foi criado/modificado, 
+# incluindo a pasta 'build' e os logs do Vivado.
+# Se quiser filtrar apenas a build: 
+transfer_output_files = build
+
+# Arquivos de log do Condor (com ID do processo para evitar sobreposição)
+output = condor_$(Cluster)_$(Process).out
+error  = condor_$(Cluster)_$(Process).err
+log    = condor_$(Cluster)_$(Process).log
+
+# Mantemos False para garantir que o ambiente do nó seja limpo
+GetEnv = False
+
+Queue
