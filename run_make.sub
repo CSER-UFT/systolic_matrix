@@ -1,4 +1,6 @@
+#solicita a execução padrão de um programa no HTcondor
 Universe   = vanilla
+#Define o script que será executado
 Executable = run_make.sh
 
 # Arquivos e pastas necessários para o projeto

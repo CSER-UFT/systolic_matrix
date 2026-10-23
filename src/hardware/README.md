@@ -51,6 +51,29 @@ outp_south <= inp_north;
 | `systolic_array.v` | Topo e interconexão 3×3. |
 | `sys_array_tb.v` | Estímulos de 4 bits. |
 | `sim.do` | Compila o testbench e define execução de 80 ns. |
+| `tcl/build.tcl` | Sintetiza, implementa e gera bitstream e relatórios. |
+| `tcl/sim_power.tcl` | Executa a simulação, captura VCD e gera relatório de potência. |
+| `tcl/program_fpga.tcl` | Programa a FPGA com o bitstream gerado. |
+
+## Fluxo Vivado
+
+Os scripts ficam em `src/hardware/tcl/` e gravam os artefatos em
+`src/hardware/build/`. Antes do build, é necessário criar
+`src/hardware/constraints/systolic_array.xdc` com o mapeamento real da placa.
+O plano e os sinais que precisam de pinos estão documentados em
+`src/hardware/constraints/README.md`. A XDC da raiz do projeto é específica para
+o display de sete segmentos e não deve ser usada para essa matriz.
+
+Com o Vivado 2022.2 disponível no `PATH`, execute a partir da raiz do projeto:
+
+```sh
+vivado -mode batch -source src/hardware/tcl/build.tcl
+vivado -mode batch -source src/hardware/tcl/sim_power.tcl
+vivado -mode batch -source src/hardware/tcl/program_fpga.tcl
+```
+
+O bitstream só pode ser gerado/programado depois de validar a peça e completar
+a XDC para a placa escolhida.
 
 ## Comparação com VHDL
 
