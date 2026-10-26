@@ -8,9 +8,9 @@ source /tools/Xilinx/Vivado/2022.2/settings64.sh
 # Copiamos tudo para dentro de build para o Vivado rodar "localmente" nela
 mkdir -p build
 cp Makefile build/
-cp -r src build/
-cp -r tcl build/
-cp -r constraints build/ 2>/dev/null || true
+cp -r src/hardware/rtl build/
+cp -r src/hardware/tcl build/
+cp -r src/hardware/constrains build/ 2>/dev/null || true
 
 # 3. Entrar na pasta build e rodar
 cd build

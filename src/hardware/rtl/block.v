@@ -1,20 +1,21 @@
+//Elementos de uma única PE:
 module block (
-    input  [3:0] inp_north,
-    input  [3:0] inp_west,
+    input  [7:0] inp_north,
+    input  [7:0] inp_west,
     input        clk,
     input        rst,
-    output reg [3:0] outp_south,
-    output reg [3:0] outp_east,
-    output reg [9:0] result
+    output reg [7:0] outp_south,
+    output reg [7:0] outp_east,
+    output reg [19:0] result
 );
 
-    wire [7:0] multi;
+    wire [15:0] multi;
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            result     <= 8'd0;
-            outp_east  <= 4'd0;
-            outp_south <= 4'd0;
+            result     <= '0;
+            outp_east  <= '0;
+            outp_south <= '0;
         end else begin
             result     <= result + multi;
             outp_east  <= inp_west;
@@ -25,10 +26,6 @@ module block (
     assign multi = inp_north * inp_west;
 
 endmodule
-
-
-
-
 
 
 
