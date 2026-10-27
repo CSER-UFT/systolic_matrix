@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/systolic_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module block
+INFO: [VRFC 10-311] analyzing module systolic_array
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/sys_array_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module block
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'block' [../../../../../../rtl/block.v:2]
+INFO: [VRFC 10-311] analyzing module systolic_array
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'systolic_array' [../../../../../../rtl/systolic_array.v:3]
+INFO: [VRFC 10-311] analyzing module sys_array_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_power_project/systolic_power_project.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

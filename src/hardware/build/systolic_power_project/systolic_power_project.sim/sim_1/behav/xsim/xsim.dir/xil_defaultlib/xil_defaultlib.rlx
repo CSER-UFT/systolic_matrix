@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_power_project/systolic_power_project.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/block.v,1793116412,verilog,,,,block,,,,,,,,
+/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/sys_array_tb.v,1793115150,verilog,,,/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/systolic_array.v,sys_array_tb,,,../../../../../../rtl,,,,,
+/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/systolic_array.v,1793115150,verilog,,/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/sys_array_tb.v,/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/block.v,systolic_array,,,../../../../../../rtl,,,,,

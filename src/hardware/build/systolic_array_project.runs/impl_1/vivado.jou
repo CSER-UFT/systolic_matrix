@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Oct 27 12:55:21 2026
+# Process ID: 3873383
+# Current directory: /home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_array_project.runs/impl_1
+# Command line: vivado -log systolic_array.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source systolic_array.tcl -notrace
+# Log file: /home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_array_project.runs/impl_1/systolic_array.vdi
+# Journal file: /home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_array_project.runs/impl_1/vivado.jou
+# Running On: sarue, OS: Linux, CPU Frequency: 1374.862 MHz, CPU Physical cores: 4, Host memory: 33609 MB
+#-----------------------------------------------------------
+source systolic_array.tcl -notrace

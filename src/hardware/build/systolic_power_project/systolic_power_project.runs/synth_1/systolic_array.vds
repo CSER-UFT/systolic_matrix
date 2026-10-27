@@ -1,0 +1,361 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Oct 27 12:57:56 2026
+# Process ID: 3874162
+# Current directory: /home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_power_project/systolic_power_project.runs/synth_1
+# Command line: vivado -log systolic_array.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source systolic_array.tcl
+# Log file: /home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_power_project/systolic_power_project.runs/synth_1/systolic_array.vds
+# Journal file: /home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_power_project/systolic_power_project.runs/synth_1/vivado.jou
+# Running On: sarue, OS: Linux, CPU Frequency: 1550.503 MHz, CPU Physical cores: 4, Host memory: 33609 MB
+#-----------------------------------------------------------
+source systolic_array.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1263.227 ; gain = 0.023 ; free physical = 7306 ; free virtual = 37461
+Command: synth_design -top systolic_array -part xc7s50csga324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 3874177
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1933.121 ; gain = 371.770 ; free physical = 6520 ; free virtual = 36675
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1373.753; parent = 1164.576; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 2925.293; parent = 1933.125; children = 992.168
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'systolic_array' [/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/systolic_array.v:3]
+INFO: [Synth 8-6157] synthesizing module 'block' [/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/block.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'block' (0#1) [/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/block.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array' (0#1) [/home/samuel.carneiro/systolic_matrix/src/hardware/rtl/systolic_array.v:3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2018.090 ; gain = 456.738 ; free physical = 6602 ; free virtual = 36757
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3010.262; parent = 2018.094; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2035.902 ; gain = 474.551 ; free physical = 6604 ; free virtual = 36759
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3028.074; parent = 2035.906; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2035.902 ; gain = 474.551 ; free physical = 6604 ; free virtual = 36759
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3028.074; parent = 2035.906; children = 992.168
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2035.902 ; gain = 0.000 ; free physical = 6594 ; free virtual = 36750
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/samuel.carneiro/systolic_matrix/src/hardware/constraints/systolic_array.xdc]
+Finished Parsing XDC File [/home/samuel.carneiro/systolic_matrix/src/hardware/constraints/systolic_array.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/samuel.carneiro/systolic_matrix/src/hardware/constraints/systolic_array.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/systolic_array_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/systolic_array_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2156.637 ; gain = 0.000 ; free physical = 6495 ; free virtual = 36651
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2156.637 ; gain = 0.000 ; free physical = 6495 ; free virtual = 36651
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6570 ; free virtual = 36726
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6570 ; free virtual = 36726
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6573 ; free virtual = 36729
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6564 ; free virtual = 36720
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    8 Bit       Adders := 1     
++---Registers : 
+	               20 Bit    Registers := 256   
+	                8 Bit    Registers := 513   
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port inp_west[127] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[126] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[125] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[124] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[123] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[122] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[121] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[120] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[119] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[118] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[117] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[116] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[115] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[114] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[113] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[112] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[111] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[110] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[109] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[108] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[107] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[106] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[105] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[104] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[103] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[102] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[101] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[100] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[99] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[98] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[97] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[96] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[95] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[94] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[93] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[92] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[91] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[90] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[89] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[88] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[87] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[86] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[85] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[84] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[83] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[82] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[81] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[80] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[79] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[78] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[77] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[76] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[75] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[74] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[73] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[72] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[71] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[70] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[69] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[68] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[67] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[66] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[65] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[64] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[63] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[62] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[61] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[60] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[59] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[58] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[57] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[56] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[55] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[54] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[53] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[52] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[51] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[50] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[49] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[48] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[47] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[46] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[45] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[44] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[43] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[42] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[41] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[40] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[39] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[38] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[37] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[36] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[35] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[34] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[33] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[32] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[31] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[30] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[29] in module systolic_array is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inp_west[28] in module systolic_array is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6536 ; free virtual = 36697
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.606; parent = 1197.499; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6424 ; free virtual = 36584
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1488.293; parent = 1279.720; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36582
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.133; parent = 1280.560; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36582
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.676; parent = 1281.103; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.816; parent = 1281.243; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.832; parent = 1281.259; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.848; parent = 1281.274; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.863; parent = 1281.290; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.863; parent = 1281.290; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.879; parent = 1281.306; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT1 |     1|
+|3     |LUT3 |     1|
+|4     |LUT4 |     1|
+|5     |LUT5 |     6|
+|6     |LUT6 |     2|
+|7     |FDCE |     9|
+|8     |IBUF |     2|
+|9     |OBUF |     1|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 2156.637 ; gain = 595.285 ; free physical = 6422 ; free virtual = 36583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1489.941; parent = 1281.368; children = 209.177
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.809; parent = 2156.641; children = 992.168
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 257 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2156.637 ; gain = 474.551 ; free physical = 6475 ; free virtual = 36636
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 2156.645 ; gain = 595.285 ; free physical = 6475 ; free virtual = 36636
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2156.645 ; gain = 0.000 ; free physical = 6581 ; free virtual = 36742
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2156.645 ; gain = 0.000 ; free physical = 6526 ; free virtual = 36686
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: d5aac4e6
+INFO: [Common 17-83] Releasing license: Synthesis
+20 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:48 . Memory (MB): peak = 2156.645 ; gain = 893.418 ; free physical = 6742 ; free virtual = 36903
+INFO: [Common 17-1381] The checkpoint '/home/samuel.carneiro/systolic_matrix/src/hardware/build/systolic_power_project/systolic_power_project.runs/synth_1/systolic_array.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file systolic_array_utilization_synth.rpt -pb systolic_array_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 12:58:59 2026...
