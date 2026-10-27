@@ -13,9 +13,9 @@ module block (
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            result     <= '0;
-            outp_east  <= '0;
-            outp_south <= '0;
+            result     <= 20'b0;
+            outp_east  <= 8'b0;
+            outp_south <= 8'b0;
         end else begin
             result     <= result + multi;
             outp_east  <= inp_west;
