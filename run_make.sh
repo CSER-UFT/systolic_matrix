@@ -1,30 +1,22 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-# 1. Ambiente Xilinx
-source /tools/Xilinx/Vivado/2022.2/settings64.sh
+# Executa a partir do diretório transferido pelo HTCondor.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
-# 2. Preparar pasta build física
-# Copiamos tudo para dentro de build para o Vivado rodar "localmente" nela
-mkdir -p build
-cp Makefile build/
-cp -r src/hardware/rtl build/
-cp -r src/hardware/tcl build/
-cp -r src/hardware/constrains build/ 2>/dev/null || true
+# Carrega Vivado apenas se ele ainda não estiver disponível no ambiente do nó.
+if ! command -v vivado >/dev/null 2>&1; then
+    VIVADO_SETTINGS=/tools/Xilinx/Vivado/2022.2/settings64.sh
+    if [[ ! -r "$VIVADO_SETTINGS" ]]; then
+        echo "Erro: Vivado 2022.2 não está disponível em $VIVADO_SETTINGS." >&2
+        exit 1
+    fi
+    # shellcheck disable=SC1090
+    source "$VIVADO_SETTINGS"
+fi
 
-# 3. Entrar na pasta build e rodar
-cd build
-export HOME=$(pwd)
+echo "==> Executando síntese, implementação, simulação e análise de potência..."
+make build sim
 
-echo "==> Executando build dentro da pasta build física..."
-# Executa o make original
-make
-
-# 4. Limpeza Pós-Execução (IMPORTANTE)
-# Removemos as cópias dos fontes para que o Condor traga de volta 
-# APENAS o que foi gerado (bitstream, logs, reports)
-echo "==> Limpando fontes para retorno..."
-rm -rf src tcl constraints Makefile
-
-echo "==> Job finalizado. Conteúdo final da pasta build:"
-ls -lh
+echo "==> Job finalizado. Artefatos: src/hardware/build"

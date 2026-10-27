@@ -1,51 +1,77 @@
 `include "block.v"
 
-module systolic_array (
-    input [7:0] inp_west0, inp_west3, inp_west6,
-    input [7:0] inp_north0, inp_north1, inp_north2,
-    input clk, rst,
-    output reg done
+module systolic_array #(
+    parameter integer SIZE         = 16,
+    parameter integer DATA_WIDTH   = 8,
+    parameter integer RESULT_WIDTH = 20
+) (
+    input  [SIZE*DATA_WIDTH-1:0] inp_west,//125
+    input  [SIZE*DATA_WIDTH-1:0] inp_north,//125
+    input                        clk,
+    input                        rst,
+    output reg                   done
 );
 
-    reg [6:0] count;
+    localparam integer CHANNELS     = SIZE * (SIZE + 1);//272
+    localparam integer TOTAL_CYCLES = (3 * SIZE) - 2;//46
 
-    wire [7:0] outp_south0, outp_south1, outp_south2;
-    wire [7:0] outp_south3, outp_south4, outp_south5;
-    wire [7:0] outp_south6, outp_south7, outp_south8;
-    wire [7:0] outp_east0, outp_east1, outp_east2;
-    wire [7:0] outp_east3, outp_east4, outp_east5;
-    wire [7:0] outp_east6, outp_east7, outp_east8;
-    wire [19:0] result0, result1, result2;
-    wire [19:0] result3, result4, result5;
-    wire [19:0] result6, result7, result8;
+    wire [CHANNELS*DATA_WIDTH-1:0] horizontal;
+    wire [CHANNELS*DATA_WIDTH-1:0] vertical;
 
-    // Primeira linha.
-    block P0 (inp_north0, inp_west0,   clk, rst, outp_south0, outp_east0, result0);
-    block P1 (inp_north1, outp_east0,  clk, rst, outp_south1, outp_east1, result1);
-    block P2 (inp_north2, outp_east1,  clk, rst, outp_south2, outp_east2, result2);
+    // Barramento interno com os SIZE*SIZE resultados. O testbench pode
+    // acessa-lo hierarquicamente como uut.results.
+    wire [SIZE*SIZE*RESULT_WIDTH-1:0] results;
 
-    // Segunda linha.
-    block P3 (outp_south0, inp_west3,  clk, rst, outp_south3, outp_east3, result3);
-    block P4 (outp_south1, outp_east3, clk, rst, outp_south4, outp_east4, result4);
-    block P5 (outp_south2, outp_east4, clk, rst, outp_south5, outp_east5, result5);
+    reg [7:0] count;
+    genvar row, col;
 
-    // Terceira linha.
-    block P6 (outp_south3, inp_west6,  clk, rst, outp_south6, outp_east6, result6);
-    block P7 (outp_south4, outp_east6, clk, rst, outp_south7, outp_east7, result7);
-    block P8 (outp_south5, outp_east7, clk, rst, outp_south8, outp_east8, result8);
+    generate
+        for (row = 0; row < SIZE; row = row + 1) begin : GEN_WEST_INPUTS
+            assign horizontal[(row*(SIZE+1))*DATA_WIDTH +: DATA_WIDTH] =
+                inp_west[row*DATA_WIDTH +: DATA_WIDTH];
+        end
 
-    // Para uma matriz 3x3, o pulso de conclusao ocorre a cada seis ciclos.
-    // 16x16 = 
+        for (col = 0; col < SIZE; col = col + 1) begin : GEN_NORTH_INPUTS
+            assign vertical[col*DATA_WIDTH +: DATA_WIDTH] =
+                inp_north[col*DATA_WIDTH +: DATA_WIDTH];
+        end
+
+        for (row = 0; row < SIZE; row = row + 1) begin : GEN_ROWS
+            for (col = 0; col < SIZE; col = col + 1) begin : GEN_COLS
+                block pe (
+                    .inp_north (
+                        vertical[((row*SIZE)+col)*DATA_WIDTH +: DATA_WIDTH]
+                    ),
+                    .inp_west (
+                        horizontal[((row*(SIZE+1))+col)*DATA_WIDTH +: DATA_WIDTH]
+                    ),
+                    .clk        (clk),
+                    .rst        (rst),
+                    .outp_south (
+                        vertical[(((row+1)*SIZE)+col)*DATA_WIDTH +: DATA_WIDTH]
+                    ),
+                    .outp_east  (
+                        horizontal[((row*(SIZE+1))+col+1)*DATA_WIDTH +: DATA_WIDTH]
+                    ),
+                    .result     (
+                        results[((row*SIZE)+col)*RESULT_WIDTH +: RESULT_WIDTH]
+                    )
+                );
+            end
+        end
+    endgenerate
+
+    // A ultima multiplicacao chega ao PE (15,15) no ciclo 45.
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             done  <= 1'b0;
-            count <= 3'd0;
-        end else if (count == 3'd5) begin
+            count <= 8'd0;
+        end else if (count == TOTAL_CYCLES - 1) begin
             done  <= 1'b1;
-            count <= 3'd0;
+            count <= 8'd0;
         end else begin
             done  <= 1'b0;
-            count <= count + 3'd1;
+            count <= count + 1'b1;
         end
     end
 

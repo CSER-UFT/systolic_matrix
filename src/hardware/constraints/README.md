@@ -1,20 +1,18 @@
-# Pin-constraint plan for `systolic_array`
+# Pin constraints for `systolic_array`
 
-The systolic-array top-level interface has 27 FPGA I/O pins:
+The supplied `systolic_array.xdc` is for implementation, utilization, power,
+and internal timing analysis. It constrains only the 100 MHz board clock. This
+lets Vivado time the synchronous paths inside the 16x16 array without inventing
+electrical or timing properties for a data interface that does not yet exist.
 
-- 24 data inputs: `inp_west0`, `inp_west3`, `inp_west6`, `inp_north0`,
-  `inp_north1`, and `inp_north2` (4 bits each);
-- `clk` and `rst`;
-- the `done` output.
-
-Create `systolic_array.xdc` in this directory after confirming the exact board
-and its master constraints/schematic. The existing `constraints/boolean_board.xdc`
-at the project root belongs to the seven-segment design and does not map this
-interface.
+The current top-level interface has 256 data-input bits (`inp_west` and
+`inp_north`, 128 bits each), plus `clk`, `rst`, and `done`. It is not an
+appropriate direct board interface for bitstream programming.
 
 The XDC needs to:
 
-1. Assign each of the 27 top-level I/O bits to a distinct package pin available
+1. Assign each top-level I/O bit actually used by the board interface to a
+   distinct package pin available
    on the selected board. Use the board's master XDC or schematic; do not infer
    pin numbers from the FPGA part alone.
 2. Set the correct `IOSTANDARD` for each assigned pin according to its FPGA
@@ -22,7 +20,7 @@ The XDC needs to:
 3. Assign `clk` to the board's clock source and define its actual frequency
    with `create_clock`. The existing seven-segment constraint uses pin `F14`
    at 100 MHz, but reuse that assignment only if the selected board is the same.
-4. Decide how the 24 data bits and `rst` will be driven. If external synchronous
+4. Decide how the data bits and `rst` will be driven. If external synchronous
    hardware drives them, add input delay constraints based on that interface's
    timing. If they are switches or buttons, confirm the intended electrical
    mapping and whether the RTL needs input synchronization/debouncing.

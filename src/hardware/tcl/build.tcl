@@ -42,12 +42,12 @@ if {![string match "*Complete*" [get_property STATUS [get_runs impl_1]]]} {
     error "Implementation did not complete successfully."
 }
 
-puts ">>> Writing bitstream and reports"
+puts ">>> Writing implementation reports"
 open_run impl_1
-write_bitstream -force [file join $BUILD_DIR systolic_array.bit]
 report_utilization -file [file join $BUILD_DIR utilization.rpt]
 report_timing_summary -file [file join $BUILD_DIR timing.rpt]
 report_power -file [file join $BUILD_DIR power.rpt]
 
-puts "=== SYSTOLIC ARRAY BUILD COMPLETE ==="
+puts "=== SYSTOLIC ARRAY ANALYSIS COMPLETE ==="
+puts "No bitstream was generated: only clk is physically constrained."
 exit

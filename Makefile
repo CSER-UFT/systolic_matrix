@@ -1,10 +1,10 @@
 # =====================================================
-# Makefile - Projeto FPGA Seven Segment
+# Makefile - Matriz sistólica em FPGA
 # Vivado 2022.2
 # =====================================================
 
 VIVADO ?= vivado
-TCL_DIR := tcl
+TCL_DIR := src/hardware/tcl
 
 BUILD_TCL     := $(TCL_DIR)/build.tcl
 SIM_POWER_TCL := $(TCL_DIR)/sim_power.tcl
@@ -15,10 +15,10 @@ PROGRAM_TCL   := $(TCL_DIR)/program_fpga.tcl
 # -----------------------------------------------------
 # Alvo padrão
 # -----------------------------------------------------
-all: build sim program
+all: build sim
 
 # -----------------------------------------------------
-# Build: síntese + implementação + bitstream
+# Build: síntese + implementação + relatórios
 # -----------------------------------------------------
 build:
 	@echo "==> BUILD: síntese e implementação"
@@ -30,6 +30,9 @@ build:
 sim:
 	@echo "==> SIMULAÇÃO + POWER"
 	$(VIVADO) -mode batch -source $(SIM_POWER_TCL)
+
+# Alias explícito para a análise de potência feita pelo fluxo de simulação.
+power: sim
 
 # -----------------------------------------------------
 # Programação da FPGA
@@ -43,7 +46,8 @@ program:
 # -----------------------------------------------------
 clean:
 	@echo "==> Limpando arquivos gerados"
-	rm -rf build sevenseg_activity.vcd *.jou *.log *.str *.xpr
+	rm -rf src/hardware/build
+	rm -f wave.vcd *.jou *.log *.str *.xpr
 
 # -----------------------------------------------------
 # Ajuda
@@ -51,9 +55,10 @@ clean:
 help:
 	@echo ""
 	@echo "Alvos disponíveis:"
-	@echo "  make           -> build + sim + program"
-	@echo "  make build     -> síntese, implementação e bitstream"
+	@echo "  make           -> build + sim + análise de potência"
+	@echo "  make build     -> síntese, implementação e relatórios"
 	@echo "  make sim       -> simulação + VCD + power"
-	@echo "  make program   -> programa a FPGA"
+	@echo "  make power     -> alias para sim"
+	@echo "  make program   -> programa a FPGA (somente com bitstream e placa conectada)"
 	@echo "  make clean     -> remove arquivos gerados"
 	@echo ""

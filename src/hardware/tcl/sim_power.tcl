@@ -31,7 +31,7 @@ if {[file exists $CONSTRAINTS_FILE]} {
 }
 add_files -fileset sim_1 $TB_FILE
 set_property top $TESTBENCH [get_filesets sim_1]
-set_property xsim.simulate.runtime 100ns [get_filesets sim_1]
+set_property xsim.simulate.runtime 600ns [get_filesets sim_1]
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
 
@@ -39,7 +39,7 @@ puts ">>> Behavioral simulation and VCD capture"
 launch_simulation -simset sim_1 -mode behavioral
 open_vcd $VCD_FILE
 log_vcd /sys_array_tb/uut/*
-run 100 ns
+run 600 ns
 close_vcd
 close_sim
 
